@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://xflfn6swp756"]
+
+[ext_resource type="PackedScene" uid="uid://yiogkq2gjm2u" path="res://scene/player2.tscn" id="1_scn6m"]
+[ext_resource type="PackedScene" uid="uid://ks6usscvt4r0" path="res://scene/enemy.tscn" id="2_5t03m"]
+[ext_resource type="PackedScene" uid="uid://c5lcdii2d5awp" path="res://scene/pause_menú.tscn" id="3_a7kjv"]
+[ext_resource type="PackedScene" uid="uid://bx1l7tcrjf6h5" path="res://scene/hud.tscn" id="4_3w0dg"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="player" parent="." instance=ExtResource("1_scn6m")]
+position = Vector2(140, 315)
+
+[node name="enemy" parent="." instance=ExtResource("2_5t03m")]
+position = Vector2(911, 348)
+
+[node name="Pause menú" parent="." instance=ExtResource("3_a7kjv")]
+
+[node name="HUD" parent="." instance=ExtResource("4_3w0dg")]

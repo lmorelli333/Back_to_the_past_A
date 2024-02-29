@@ -1,0 +1,77 @@
+[gd_scene load_steps=5 format=3 uid="uid://bp83f77y5ofcy"]
+
+[ext_resource type="Script" path="res://scene/End_game/Script/hud.gd" id="1_w4h7n"]
+[ext_resource type="FontFile" uid="uid://dqdf5mbvp4i44" path="res://assets/back_to_the_future/BTTF.ttf" id="2_7d1nk"]
+[ext_resource type="AudioStream" uid="uid://bb6qyy4lwebd2" path="res://Global/third_lv/pong_lost.mp3" id="3_aqs55"]
+[ext_resource type="AudioStream" uid="uid://cyarv3moq1lxm" path="res://Global/third_lv/pong_victory.mp3" id="4_ka0yx"]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_w4h7n")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 19.0
+offset_bottom = 19.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.44, 0.280002)
+
+[node name="player" type="Label" parent="Control"]
+texture_filter = 1
+layout_mode = 2
+offset_left = 500.0
+offset_right = 537.0
+offset_bottom = 91.0
+scale = Vector2(3, 3)
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.854902, 0.431373, 0.176471, 1)
+theme_override_colors/font_shadow_color = Color(0.937255, 0.858824, 0.298039, 1)
+theme_override_fonts/font = ExtResource("2_7d1nk")
+theme_override_font_sizes/font_size = 64
+text = "0"
+metadata/_edit_group_ = true
+
+[node name="timer_label" type="Label" parent="Control"]
+texture_filter = 1
+layout_mode = 2
+offset_left = 1022.73
+offset_top = 3.5714
+offset_right = 1057.73
+offset_bottom = 94.5714
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(3, 3)
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.854902, 0.431373, 0.176471, 1)
+theme_override_colors/font_shadow_color = Color(0.937255, 0.858824, 0.298039, 1)
+theme_override_fonts/font = ExtResource("2_7d1nk")
+theme_override_font_sizes/font_size = 64
+metadata/_edit_group_ = true
+
+[node name="enemy" type="Label" parent="Control"]
+texture_filter = 1
+layout_mode = 2
+offset_left = 2000.0
+offset_right = 2037.0
+offset_bottom = 91.0
+scale = Vector2(3, 3)
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.854902, 0.431373, 0.176471, 1)
+theme_override_colors/font_shadow_color = Color(0.937255, 0.858824, 0.298039, 1)
+theme_override_fonts/font = ExtResource("2_7d1nk")
+theme_override_font_sizes/font_size = 64
+text = "0"
+metadata/_edit_group_ = true
+
+[node name="left" type="AudioStreamPlayer2D" parent="Control"]
+stream = ExtResource("3_aqs55")
+volume_db = 9.0
+autoplay = true
+
+[node name="right" type="AudioStreamPlayer2D" parent="Control"]
+stream = ExtResource("4_ka0yx")
+volume_db = -4.0
+autoplay = true

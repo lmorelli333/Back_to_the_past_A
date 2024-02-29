@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://dsv7v7osvhtbb"]
+
+[ext_resource type="Script" path="res://scene/Script/menu_background.gd" id="1_ua12j"]
+[ext_resource type="Texture2D" uid="uid://b066wycbmkeqy" path="res://assets/bk_jam1.jpg" id="2_xvtub"]
+
+[node name="ParallaxBackground" type="ParallaxBackground"]
+script = ExtResource("1_ua12j")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer"]
+
+[node name="BkJam1" type="Sprite2D" parent="ParallaxLayer/Sprite2D"]
+position = Vector2(576, 324)
+scale = Vector2(1.44, 1.08)
+texture = ExtResource("2_xvtub")

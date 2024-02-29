@@ -1,0 +1,57 @@
+[gd_scene load_steps=4 format=3 uid="uid://bx1l7tcrjf6h5"]
+
+[ext_resource type="Script" path="res://scene/Script/HUD.gd" id="1_dcbjs"]
+[ext_resource type="FontFile" uid="uid://dqdf5mbvp4i44" path="res://assets/back_to_the_future/BTTF.ttf" id="2_j62eu"]
+[ext_resource type="Texture2D" uid="uid://i17j7k0o63lf" path="res://assets/battery/energy_cell_00.png" id="3_u28x2"]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_dcbjs")
+
+[node name="HP" type="Label" parent="."]
+offset_left = 12.0
+offset_top = 8.0
+offset_right = 111.0
+offset_bottom = 46.0
+theme_override_colors/font_color = Color(0.854902, 0.431373, 0.176471, 1)
+theme_override_colors/font_shadow_color = Color(0.937255, 0.858824, 0.298039, 1)
+theme_override_fonts/font = ExtResource("2_j62eu")
+theme_override_font_sizes/font_size = 30
+text = "HP = "
+
+[node name="value" type="Label" parent="."]
+offset_left = 106.0
+offset_top = 8.0
+offset_right = 205.0
+offset_bottom = 46.0
+theme_override_colors/font_color = Color(0.854902, 0.431373, 0.176471, 1)
+theme_override_colors/font_shadow_color = Color(0.937255, 0.858824, 0.298039, 1)
+theme_override_fonts/font = ExtResource("2_j62eu")
+theme_override_font_sizes/font_size = 30
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = 955.0
+offset_top = -3.0
+offset_right = 1004.0
+offset_bottom = 46.0
+texture = ExtResource("3_u28x2")
+
+[node name="batt_taken" type="Label" parent="."]
+offset_left = 1022.0
+offset_top = 8.0
+offset_right = 1121.0
+offset_bottom = 46.0
+theme_override_colors/font_color = Color(0.854902, 0.431373, 0.176471, 1)
+theme_override_colors/font_shadow_color = Color(0.937255, 0.858824, 0.298039, 1)
+theme_override_fonts/font = ExtResource("2_j62eu")
+theme_override_font_sizes/font_size = 30
+
+[node name="total_batteries" type="Label" parent="."]
+offset_left = 1068.0
+offset_top = 8.0
+offset_right = 1124.0
+offset_bottom = 46.0
+theme_override_colors/font_color = Color(0.854902, 0.431373, 0.176471, 1)
+theme_override_colors/font_shadow_color = Color(0.937255, 0.858824, 0.298039, 1)
+theme_override_fonts/font = ExtResource("2_j62eu")
+theme_override_font_sizes/font_size = 30
+text = "/ 5"

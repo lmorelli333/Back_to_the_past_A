@@ -1,0 +1,48 @@
+[gd_scene load_steps=8 format=3 uid="uid://c5lcdii2d5awp"]
+
+[ext_resource type="PackedScene" uid="uid://dsv7v7osvhtbb" path="res://scene/menu_background.tscn" id="1_1mygg"]
+[ext_resource type="Script" path="res://scene/Script/pause_menú.gd" id="1_q5t5r"]
+[ext_resource type="FontFile" uid="uid://dqdf5mbvp4i44" path="res://assets/back_to_the_future/BTTF.ttf" id="2_11phr"]
+[ext_resource type="Texture2D" uid="uid://bn6t7uhek3caf" path="res://assets/Butt_assets/Quit.png" id="4_5v4by"]
+[ext_resource type="Texture2D" uid="uid://d2eejokekrqtb" path="res://assets/Butt_assets/Quit_mouseover.png" id="5_7xxe8"]
+[ext_resource type="Texture2D" uid="uid://b83vqvo7blaar" path="res://assets/Butt_assets/Restart.png" id="6_0h3bt"]
+[ext_resource type="Texture2D" uid="uid://dlx0dra7r5ge4" path="res://assets/Butt_assets/Restart_mouseover.png" id="7_p127p"]
+
+[node name="Pause menú" type="Node2D"]
+visible = false
+script = ExtResource("1_q5t5r")
+
+[node name="ParallaxBackground" parent="." instance=ExtResource("1_1mygg")]
+visible = false
+
+[node name="Label" type="Label" parent="."]
+offset_left = 448.0
+offset_top = 128.0
+offset_right = 704.0
+offset_bottom = 199.0
+theme_override_colors/font_color = Color(0.854902, 0.431373, 0.176471, 1)
+theme_override_colors/font_shadow_color = Color(0.937255, 0.858824, 0.298039, 1)
+theme_override_fonts/font = ExtResource("2_11phr")
+theme_override_font_sizes/font_size = 60
+text = "PAUSE"
+
+[node name="Quit" type="TextureButton" parent="."]
+offset_left = 192.0
+offset_top = 320.0
+offset_right = 611.0
+offset_bottom = 487.0
+scale = Vector2(0.758793, 0.758793)
+texture_normal = ExtResource("4_5v4by")
+texture_hover = ExtResource("5_7xxe8")
+
+[node name="Restart" type="TextureButton" parent="."]
+offset_left = 832.0
+offset_top = 320.0
+offset_right = 1251.0
+offset_bottom = 487.0
+scale = Vector2(0.758793, 0.758793)
+texture_normal = ExtResource("6_0h3bt")
+texture_hover = ExtResource("7_p127p")
+
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Restart" to="." method="_on_restart_pressed"]

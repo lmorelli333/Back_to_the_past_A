@@ -1,0 +1,81 @@
+[gd_scene load_steps=10 format=3 uid="uid://c2q2h3h4ycvnb"]
+
+[ext_resource type="Script" path="res://scene/scena2/doc.gd" id="1_gfxid"]
+[ext_resource type="Texture2D" uid="uid://cr28l0jdc54jb" path="res://scene/scena2/Doc_animated.png" id="1_pr3jk"]
+[ext_resource type="Script" path="res://scene/scena2/timer.gd" id="3_l18fo"]
+[ext_resource type="FontFile" uid="uid://de3e2gco64d0h" path="res://scene/scena2/BTTF.ttf" id="4_1j54v"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2ei60"]
+size = Vector2(17, 29)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8nj22"]
+atlas = ExtResource("1_pr3jk")
+region = Rect2(33, 0, 33, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ioegf"]
+atlas = ExtResource("1_pr3jk")
+region = Rect2(0, 99, 33, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ahk1b"]
+atlas = ExtResource("1_pr3jk")
+region = Rect2(33, 66, 33, 33)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4fgtb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8nj22")
+}],
+"loop": true,
+"name": &"front",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ioegf")
+}],
+"loop": true,
+"name": &"left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ahk1b")
+}],
+"loop": true,
+"name": &"right",
+"speed": 5.0
+}]
+
+[node name="doc" type="CharacterBody2D" groups=["player"]]
+position = Vector2(628, 479)
+script = ExtResource("1_gfxid")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 17)
+shape = SubResource("RectangleShape2D_2ei60")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, 1)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_4fgtb")
+animation = &"right"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource("3_l18fo")
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -149.0
+offset_right = 238.0
+offset_bottom = 69.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.854902, 0.431373, 0.176471, 1)
+theme_override_colors/font_shadow_color = Color(0.937255, 0.858824, 0.298039, 1)
+theme_override_fonts/font = ExtResource("4_1j54v")
+theme_override_font_sizes/font_size = 40

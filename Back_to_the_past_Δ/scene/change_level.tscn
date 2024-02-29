@@ -1,0 +1,83 @@
+[gd_scene load_steps=15 format=3 uid="uid://cf4ew2hm5myhj"]
+
+[ext_resource type="Script" path="res://scene/Script/change_level.gd" id="1_46sfc"]
+[ext_resource type="Texture2D" uid="uid://cdp2oq1p5rbme" path="res://assets/delorean_animation/delorean_04.png" id="2_411so"]
+[ext_resource type="Texture2D" uid="uid://c6o78lgvlyn3c" path="res://assets/delorean_animation/delorean_05.png" id="3_5c6ib"]
+[ext_resource type="Texture2D" uid="uid://c30mhw5upo5ga" path="res://assets/delorean_animation/delorean_06.png" id="4_p40n1"]
+[ext_resource type="Texture2D" uid="uid://bsyo0hf7lmu5" path="res://assets/delorean_animation/delorean_07.png" id="5_s68al"]
+[ext_resource type="Texture2D" uid="uid://cuax42ewf5tvs" path="res://assets/delorean_animation/delorean_09.png" id="6_ik675"]
+[ext_resource type="Texture2D" uid="uid://7iv1vbke6yyr" path="res://assets/delorean_animation/delorean_08.png" id="7_gwep8"]
+[ext_resource type="Texture2D" uid="uid://vorc5nlvkthw" path="res://assets/delorean_animation/delorean_10.png" id="8_yuxlp"]
+[ext_resource type="Texture2D" uid="uid://c6at8k6sefpfu" path="res://assets/delorean_animation/delorean_11.png" id="9_v8k2s"]
+[ext_resource type="Texture2D" uid="uid://bcl0fqb58eq2s" path="res://assets/delorean_animation/delorean_12.png" id="10_mw7lu"]
+[ext_resource type="PackedScene" uid="uid://dsv7v7osvhtbb" path="res://scene/menu_background.tscn" id="11_lncpm"]
+[ext_resource type="FontFile" uid="uid://dqdf5mbvp4i44" path="res://assets/back_to_the_future/BTTF.ttf" id="12_eu057"]
+[ext_resource type="AudioStream" uid="uid://c8crahsgvomg8" path="res://Global/delorean.mp3" id="13_d5g55"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kcyuk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_411so")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_5c6ib")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_p40n1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_s68al")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_ik675")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_gwep8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_yuxlp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_v8k2s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_mw7lu")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="change_level" type="Node2D"]
+script = ExtResource("1_46sfc")
+
+[node name="ParallaxBackground" parent="." instance=ExtResource("11_lncpm")]
+
+[node name="ParallaxBackground2" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground2"]
+
+[node name="car" type="AnimatedSprite2D" parent="ParallaxBackground2/ParallaxLayer2"]
+position = Vector2(112, 352)
+scale = Vector2(1.6189, 1.6189)
+sprite_frames = SubResource("SpriteFrames_kcyuk")
+autoplay = "default"
+frame = 5
+frame_progress = 0.275051
+flip_h = true
+
+[node name="Label" type="Label" parent="."]
+offset_left = 224.0
+offset_top = 448.0
+offset_right = 928.0
+offset_bottom = 512.0
+theme_override_colors/font_color = Color(0.854902, 0.431373, 0.176471, 1)
+theme_override_colors/font_shadow_color = Color(0.937255, 0.858824, 0.298039, 1)
+theme_override_fonts/font = ExtResource("12_eu057")
+theme_override_font_sizes/font_size = 50
+text = "To the next level..."
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("13_d5g55")
+autoplay = true

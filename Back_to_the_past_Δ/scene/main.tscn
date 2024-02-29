@@ -1,0 +1,63 @@
+[gd_scene load_steps=12 format=3 uid="uid://csch6j1etqm26"]
+
+[ext_resource type="Script" path="res://scene/Script/main.gd" id="1_5h6rn"]
+[ext_resource type="Texture2D" uid="uid://dtn66geou32wu" path="res://assets/Butt_assets/Play.png" id="2_hqwyj"]
+[ext_resource type="Texture2D" uid="uid://dne880y117t00" path="res://assets/Butt_assets/Play_mouseover.png" id="3_gme6g"]
+[ext_resource type="Texture2D" uid="uid://cpakfhxxqn6ud" path="res://assets/Butt_assets/Commands.png" id="4_4i6q1"]
+[ext_resource type="Texture2D" uid="uid://dlvshibd0jm74" path="res://assets/Butt_assets/Commands_mouseover.png" id="5_e404p"]
+[ext_resource type="Texture2D" uid="uid://bsann1a0dj5ox" path="res://assets/Butt_assets/Settings.png" id="6_eg1i7"]
+[ext_resource type="Texture2D" uid="uid://8o4w6txpp52a" path="res://assets/Butt_assets/Settings_mouseover.png" id="7_2o1u4"]
+[ext_resource type="Texture2D" uid="uid://bn6t7uhek3caf" path="res://assets/Butt_assets/Quit.png" id="8_b3b6h"]
+[ext_resource type="Texture2D" uid="uid://d2eejokekrqtb" path="res://assets/Butt_assets/Quit_mouseover.png" id="9_6sic8"]
+[ext_resource type="PackedScene" uid="uid://dsv7v7osvhtbb" path="res://scene/menu_background.tscn" id="9_58wp7"]
+[ext_resource type="AudioStream" uid="uid://c7otjkvkgdhdt" path="res://Global/third_lv/button_sound.mp3" id="9_ww662"]
+
+[node name="main" type="Node2D"]
+script = ExtResource("1_5h6rn")
+
+[node name="Play" type="TextureButton" parent="."]
+offset_left = 320.0
+offset_top = 136.0
+offset_right = 739.0
+offset_bottom = 303.0
+scale = Vector2(0.752418, 0.717737)
+texture_normal = ExtResource("2_hqwyj")
+texture_hover = ExtResource("3_gme6g")
+
+[node name="Commands" type="TextureButton" parent="."]
+offset_left = 320.0
+offset_top = 264.0
+offset_right = 739.0
+offset_bottom = 431.0
+scale = Vector2(0.758052, 0.723112)
+texture_normal = ExtResource("4_4i6q1")
+texture_hover = ExtResource("5_e404p")
+
+[node name="Settings" type="TextureButton" parent="."]
+offset_left = 320.0
+offset_top = 392.0
+offset_right = 739.0
+offset_bottom = 559.0
+scale = Vector2(0.768654, 0.733225)
+texture_normal = ExtResource("6_eg1i7")
+texture_hover = ExtResource("7_2o1u4")
+
+[node name="Quit" type="TextureButton" parent="."]
+offset_left = 759.0
+offset_top = 392.0
+offset_right = 1178.0
+offset_bottom = 559.0
+scale = Vector2(0.768654, 0.733225)
+texture_normal = ExtResource("8_b3b6h")
+texture_hover = ExtResource("9_6sic8")
+
+[node name="ParallaxBackground" parent="." instance=ExtResource("9_58wp7")]
+
+[node name="button" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_ww662")
+volume_db = -3.0
+
+[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Commands" to="." method="_on_commands_pressed"]
+[connection signal="pressed" from="Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
